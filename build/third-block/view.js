@@ -53,9 +53,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__wordpress_interactivity_8e89b257__;
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************************!*\
-  !*** ./src/second-block/view.js ***!
-  \**********************************/
+/*!*********************************!*\
+  !*** ./src/third-block/view.js ***!
+  \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/interactivity */ "@wordpress/interactivity");
 /**
@@ -65,67 +65,18 @@ __webpack_require__.r(__webpack_exports__);
 const {
   state,
   actions
-} = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('create-block', {
-  state: {
-    todos: [],
-    get todoCount() {
-      const todos = state.todos;
-      return todos.length;
-    }
-  },
+} = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.store)('posts-block', {
   actions: {
-    toggle: () => {
-      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      context.isOpen = !context.isOpen;
-    },
-    // Counter
-    increaseCount: () => {
-      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      context.currentCount++;
-    },
-    decreaseCount: () => {
-      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      context.currentCount--;
-    },
-    resetCount: () => {
-      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      context.currentCount = 0;
-    },
-    addTodo: () => {
+    setCurrentPost: () => {
       const {
         ref
       } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getElement)();
-      const input = ref.parentElement.querySelector('.todo__input');
-      const value = input.value;
-      if (!value) return;
-      state.todos.push({
-        text: value
-      });
+      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
 
-      // Clear the input field after adding the todo
-      input.value = '';
-    },
-    addTodoIfEnter: event => {
-      if (event.key === 'Enter') {
-        actions.addTodo();
-      }
-    },
-    removeTodo: () => {
-      const context = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      const {
-        ref
-      } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getElement)();
-      const text = ref.parentElement.querySelector('.todo__item-content').textContent;
-      state.todos = state.todos.filter(todo => todo.text !== text);
-    }
-  },
-  callbacks: {
-    logIsOpen: () => {
-      const {
-        isOpen
-      } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getContext)();
-      // Log the value of `isOpen` each time it changes.
-      console.log(`Is open: ${isOpen}`);
+      // Match the title of the ref element with the post title
+      const postTitle = ref.textContent;
+      const newCurrentPost = context.posts.find(post => post.title == postTitle);
+      context.currentPost = [...newCurrentPost];
     }
   }
 });

@@ -27,5 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 function create_block_wordcamp_interactivity_block_block_init() {
 	register_block_type_from_metadata( __DIR__ . '/build/first-block' );
 	register_block_type_from_metadata( __DIR__ . '/build/second-block' );
+	register_block_type_from_metadata( __DIR__ . '/build/third-block' );
 }
 add_action( 'init', 'create_block_wordcamp_interactivity_block_block_init' );
