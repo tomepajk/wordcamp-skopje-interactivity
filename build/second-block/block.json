@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/wordcamp-interactivity-second-block",
+  "version": "0.1.0",
+  "title": "Wordcamp Interactivity Second Block",
+  "category": "widgets",
+  "icon": "media-interactive",
+  "description": "An interactive block with the Interactivity API.",
+  "example": {},
+  "supports": {
+    "interactivity": true
+  },
+  "textdomain": "wordcamp-interactivity-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScriptModule": "file:./view.js"
+}

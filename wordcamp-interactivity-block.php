@@ -25,17 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_wordcamp_interactivity_block_block_init() {
-	register_block_type_from_metadata( __DIR__ . '/build' );
+	register_block_type_from_metadata( __DIR__ . '/build/first-block' );
+	register_block_type_from_metadata( __DIR__ . '/build/second-block' );
 }
 add_action( 'init', 'create_block_wordcamp_interactivity_block_block_init' );
-
-
-add_action('generate_after_header', 'add_todo_counter_below_header');
-
-function add_todo_counter_below_header() {
-	?>
-	<div data-wp-interactive="create-block">
-		<h1> ToDO Count: <span data-wp-text="state.todoCount"></span></h1>
-	</div>
-	<?php
-}
