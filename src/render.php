@@ -14,12 +14,9 @@
 
 $unique_id = wp_unique_id( 'p-' );
 
-$unique_id = wp_unique_id( 'p-' );
-
 $context = array(
 	'isOpen'       => false,
 	'currentCount' => 0,
-	'todos'        => array(),
 );
 ?>
 
@@ -42,7 +39,7 @@ $context = array(
             data-wp-bind--hidden="!context.isOpen"
     >
 		<?php
-		esc_html_e( 'Wp Interactivity - hello from an interactive block!', 'codeable-wp-interactivity' );
+		esc_html_e( 'Codeable Wp Interactivity - hello from an interactive block!', 'codeable-wp-interactivity' );
 		?>
     </p>
 
@@ -78,7 +75,7 @@ $context = array(
             </button>
         </div>
         <div class="todo__list">
-            <template data-wp-each="context.todos">
+            <template data-wp-each="state.todos">
                 <div class="todo__item">
                     <span class="todo__item-content" data-wp-text="context.item.text"></span>
                     <button class="todo__remove"  data-wp-on--click="actions.removeTodo">
